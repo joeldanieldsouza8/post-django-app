@@ -27,7 +27,7 @@ class Tag(models.Model):
         ordering = ["name"]  # Order the tags by name in ascending order
 
     def __str__(self):
-        return f"Tag: {self.name}"
+        return self.name
 
 
 # def get_default_author():

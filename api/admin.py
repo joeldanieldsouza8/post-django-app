@@ -33,19 +33,11 @@ class PostAdmin(admin.ModelAdmin):
         return ", ".join([tag.name for tag in tags]) if tags else None # Return a comma-separated string of tag names if tags exist, else return None
 
 
-# Register the Post model with the custom PostAdmin class in  the admin site
-admin.site.register(Post, PostAdmin)
-
-
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ["id", "fullname", "email"]
     search_fields = ["fullname", "email"]
     list_per_page = 5
     ordering = ("-id",)
-
-
-# Register the Author model with the custom AuthorAdmin class in the admin site
-admin.site.register(Author, AuthorAdmin)
 
 
 class AuthorProfileAdmin(admin.ModelAdmin):
@@ -57,3 +49,6 @@ class AuthorProfileAdmin(admin.ModelAdmin):
 
 # Register the AuthorProfile model with the custom AuthorProfileAdmin class in the admin site
 admin.site.register(AuthorProfile, AuthorProfileAdmin)
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Post, PostAdmin)
+admin.site.register(Tag)
